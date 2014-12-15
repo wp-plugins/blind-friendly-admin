@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Plugin Name: Blindfriendly Admin
 Plugin URI: http://www.petroit.cz
