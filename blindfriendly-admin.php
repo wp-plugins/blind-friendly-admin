@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /*
 Plugin Name: Blindfriendly Admin
 Plugin URI: http://www.petroit.cz
 Description: WordPress Admin Plugin zlepšující přístupnost administrátorského rozhraní WordPressu. Stačí nahrát a aktivovat.
-Version: 1.0.1
+Version: 1.0
 Author: Petr Mačejovský
 Author URI: http://www.petroit.cz
 */
