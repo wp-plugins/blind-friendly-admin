@@ -3,8 +3,8 @@ Contributors: Petroit
 Donate link: http://www.petroit.cz/contact/
 Tags: accessible, blind, purblind, handicap, blindfriendly, admin, administrator
 Requires at least: 3.8
-Tested up to: 4.0.1
-Stable tag: 1.0.1
+Tested up to: 4.1
+Stable tag: 1.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,9 +47,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed bug when changing settings would not actually apply changes.
+
 = 1.0.1 =
 * Minor visual update of buttons and updates section.
-* Fixed bug when changing settings would not actually apply changes.
 
 = 1.0 =
 * First version.
