@@ -22,9 +22,9 @@ defined('ABSPATH') or die("No script kiddies please!");
 //Internationalization
 load_plugin_textdomain('Blindfriendly Admin', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
-$css = get_option('bastgs_settings[bastgs_select_field_11]', '1');
+$css = get_option('bastgs_settings', 'default');
 //var_dump($css[bastgs_select_field_11]);
-if((isset($css) && $css==1) || $css==null) {
+if((isset($css['bastgs_select_field_11']) && $css['bastgs_select_field_11']==1) || $css['bastgs_select_field_11']==null) {
 function ba_theme_style() {
     wp_enqueue_style('my-admin-theme0', plugins_url('0_main.css', __FILE__));
     wp_enqueue_style('my-admin-theme1', plugins_url('1_posts.css', __FILE__));
@@ -61,9 +61,8 @@ add_action( 'wp_dashboard_setup', 'ba_remove_dashboard_widgets' );
 
 
 /* Sound after click */
-$sounds = get_option('bastgs_settings[bastgs_select_field_0]', '1');
-if(isset($sounds) && $sounds==1 || $sounds==null) {
-
+$options = get_option( 'bastgs_settings', 'default' );
+if($options['bastgs_select_field_0']==1 || $options['bastgs_select_field_0']==null) {
 function ba_admin_scripts(){
     wp_register_script('ba_main_js', plugins_url('js/load-audio.js', __FILE__), false, null, false);
     wp_enqueue_script('ba_main_js');
@@ -293,8 +292,8 @@ function bastgs_select_field_0_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_0]' id='bastgs_settings_0'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_0']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2'  <?php if($options['bastgs_select_field_0']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_0']) && $options['bastgs_select_field_0']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2'  <?php if(isset($options['bastgs_select_field_0']) && $options['bastgs_select_field_0']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
     <?php
     echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování zvukových oznámení nebo "Ne" pro jejich zrušení.', 'blindfriendly-admin').'</p>';
@@ -305,8 +304,8 @@ function bastgs_select_field_11_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_11]' id='bastgs_settings_11'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_11']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_11']==2) { echo 'selected'; } ?>>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_11']) && $options['bastgs_select_field_11']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_11']) && $options['bastgs_select_field_11']==2) { echo 'selected'; } ?>>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování přístupného vzhledu nebo "Ne" pro přepnutí na původní vzhled.', 'blindfriendly-admin').'</p>';
@@ -320,8 +319,8 @@ function bastgs_select_field_1_render(  ) {
     ?>
         <hr id="plugin_settings2">
         <select name='bastgs_settings[bastgs_select_field_1]' id='bastgs_settings_1'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_1']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_1']==2) { echo 'selected'; } ?>>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_1']) && $options['bastgs_select_field_1']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_1']) && $options['bastgs_select_field_1']==2) { echo 'selected'; } ?>>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Příspěvky nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -332,8 +331,8 @@ function bastgs_select_field_2_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_2]' id='bastgs_settings_2'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_2']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_2']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_2']) && $options['bastgs_select_field_2']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_2']) && $options['bastgs_select_field_2']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Příspěvky nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -344,8 +343,8 @@ function bastgs_select_field_3_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_3]' id='bastgs_settings_3'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_3']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_3']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_3']) && $options['bastgs_select_field_3']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_3']) && $options['bastgs_select_field_3']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Média nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -356,8 +355,8 @@ function bastgs_select_field_4_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_4]' id='bastgs_settings_4'>
-            <option label='Ano' value='1' <<?php if($options['bastgs_select_field_4']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_4']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <<?php if(isset($options['bastgs_select_field_4']) && $options['bastgs_select_field_4']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_4']) && $options['bastgs_select_field_4']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Stránky nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -368,8 +367,8 @@ function bastgs_select_field_5_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_5]' id='bastgs_settings_5'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_5']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_5']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_5']) && $options['bastgs_select_field_5']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_5']) && $options['bastgs_select_field_5']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Komentáře nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -380,8 +379,8 @@ function bastgs_select_field_6_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_6]' id='bastgs_settings_6'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_6']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_6']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_6']) && $options['bastgs_select_field_6']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_6']) && $options['bastgs_select_field_6']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Vzhled nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -392,8 +391,8 @@ function bastgs_select_field_7_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_7]' id='bastgs_settings_7'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_7']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_7']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_7']) && $options['bastgs_select_field_7']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_7']) && $options['bastgs_select_field_7']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Pluginy nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -404,8 +403,8 @@ function bastgs_select_field_8_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_8]' id='bastgs_settings_8'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_8']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_8']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_8']) && $options['bastgs_select_field_8']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_8']) && $options['bastgs_select_field_8']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Uživatelé nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -416,8 +415,8 @@ function bastgs_select_field_9_render(  ) {
     $options = get_option( 'bastgs_settings', 'default' );
     ?>
         <select name='bastgs_settings[bastgs_select_field_9]' id='bastgs_settings_9'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_9']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_9']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_9']) && $options['bastgs_select_field_9']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_9']) && $options['bastgs_select_field_9']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Nástroje nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';
@@ -426,10 +425,10 @@ function bastgs_select_field_9_render(  ) {
 function bastgs_select_field_10_render(  ) { 
 
     $options = get_option( 'bastgs_settings', 'default' );
-    ?>
+    ?>	
         <select name='bastgs_settings[bastgs_select_field_10]' id='bastgs_settings_10'>
-            <option label='Ano' value='1' <?php if($options['bastgs_select_field_10']==1) { echo 'selected'; } ?>>Ano</option>
-            <option label='Ne' value='2' <?php if($options['bastgs_select_field_10']==2) { echo 'selected'; } ?>>Ne</option>
+            <option label='Ano' value='1' <?php if(isset($options['bastgs_select_field_10']) && $options['bastgs_select_field_10']==1) { echo 'selected'; } ?>>Ano</option>
+            <option label='Ne' value='2' <?php if(isset($options['bastgs_select_field_10']) && $options['bastgs_select_field_10']==2) { echo 'selected'; } ?>>Ne</option>
         </select>
   <?php
   echo '<br /><p class="plugin_settings">'.__('Vyberte "Ano" pro zachování panelu Průvodce nebo "Ne" pro jeho skrytí.', 'blindfriendly-admin').'</p>';

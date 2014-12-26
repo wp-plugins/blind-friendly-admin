@@ -49,6 +49,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 = 1.0.1 =
 * Minor visual update of buttons and updates section.
+* Fixed bug when changing settings would not actually apply changes.
 
 = 1.0 =
 * First version.
