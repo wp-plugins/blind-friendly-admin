@@ -14,7 +14,7 @@ Plugin for blind and purblind administrators of WordPress.
 
 == Description ==
 
-Blindfriendly Admin is a plugin for blind and purblind administrators of WordPress. It enhances overall accessibility of admin area.
+Blindfriendly Admin is a plugin for blind and purblind administrators of WordPress. It enhances overall accessibility of admin area and tries to be more blind friendly.
 It can also remove any menu items so your screen reader does not read again and again menu items you don't use.
 Also plugin adds option to hear sound after click. This is of course optional and can be turned off.
 
