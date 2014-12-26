@@ -24,7 +24,7 @@ load_plugin_textdomain('Blindfriendly Admin', false, basename( dirname( __FILE__
 
 $css = get_option('bastgs_settings', 'default');
 //var_dump($css[bastgs_select_field_11]);
-if((isset($css['bastgs_select_field_11']) && $css['bastgs_select_field_11']==1) || $css['bastgs_select_field_11']==null) {
+if($css['bastgs_select_field_11']==1 || $css['bastgs_select_field_11']==null) {
 function ba_theme_style() {
     wp_enqueue_style('my-admin-theme0', plugins_url('0_main.css', __FILE__));
     wp_enqueue_style('my-admin-theme1', plugins_url('1_posts.css', __FILE__));
