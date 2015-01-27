@@ -34,7 +34,6 @@ ul#adminmenu a:hover {
 a.button:hover {
     color: #90DDDD !important;
     background-color: black !important; 
-    border-width: medium;
     border-color: black !important;
 }
 
@@ -48,7 +47,6 @@ a.cancel:hover, a.save:hover {
 input.button:hover{
     color: #90DDDD !important;
     background-color: black !important;
-    border-width: medium;
     border-color: black !important;
 }
 

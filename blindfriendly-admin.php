@@ -24,7 +24,7 @@ load_plugin_textdomain('Blindfriendly Admin', false, basename( dirname( __FILE__
 
 $css = get_option('bastgs_settings', 'default');
 //var_dump($css[bastgs_select_field_11]);
-if($css['bastgs_select_field_11']==1 || $css['bastgs_select_field_11']==null) {
+if(isset($css['bastgs_select_field_11']) && ($css['bastgs_select_field_11']==1 || $css['bastgs_select_field_11']==null)) {
 function ba_theme_style() {
     wp_enqueue_style('my-admin-theme0', plugins_url('0_main.css', __FILE__));
     wp_enqueue_style('my-admin-theme1', plugins_url('1_posts.css', __FILE__));
@@ -62,7 +62,7 @@ add_action( 'wp_dashboard_setup', 'ba_remove_dashboard_widgets' );
 
 /* Sound after click */
 $options = get_option( 'bastgs_settings', 'default' );
-if($options['bastgs_select_field_0']==1 || $options['bastgs_select_field_0']==null) {
+if(isset($options['bastgs_select_field_0']) && ($options['bastgs_select_field_0']==1 || $options['bastgs_select_field_0']==null)) {
 function ba_admin_scripts(){
     wp_register_script('ba_main_js', plugins_url('js/load-audio.js', __FILE__), false, null, false);
     wp_enqueue_script('ba_main_js');
